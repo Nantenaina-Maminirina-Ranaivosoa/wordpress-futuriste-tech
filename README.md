@@ -24,7 +24,7 @@ Ce portfolio est construit avec les technologies les plus performantes du march√
 
 1.  **Cloner le projet**
     ```bash
-    git clone [https://github.com/votre-pseudo/DevNante.git](https://github.com/votre-pseudo/DevNante.git)
+    git clone [https://github.com/Nantenaina-Maminirina-Ranaivosoa/wordpress-futuriste-tech]
     cd DevNante
     ```
 
