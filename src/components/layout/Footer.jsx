@@ -2,63 +2,78 @@ import { motion } from 'framer-motion';
 import './Footer.css';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="site-footer">
       <div className="container">
-        {/* Section Contact / CTA Rapide */}
+        {/* CTA de clôture immersif */}
         <section className="footer-cta">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="cta-wrapper"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="cta-card"
+            transition={{ duration: 0.8 }}
           >
-            <h2>Prêt à lancer votre <span className="highlight">Projet ?</span></h2>
-            <p>Fusionnons vos idées avec mon expertise technique.</p>
-            <a href="mailto:contact@devestate.com" className="contact-link">Démarrer la discussion</a>
+            <h2 className="cta-title">
+              Prêt à bâtir le <span className="highlight">futur ?</span>
+            </h2>
+            <p className="cta-text">Fusionnons vos ambitions avec une architecture web d'exception.</p>
+            <motion.a 
+              href="mailto:contact@devestate.com" 
+              className="cta-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Démarrer un projet
+            </motion.a>
           </motion.div>
         </section>
 
-        <hr className="footer-divider" />
-
-        {/* Navigation Footer Sémantique */}
-        <div className="footer-grid">
-          <div className="footer-brand">
+        <div className="footer-main">
+          <div className="footer-brand-section">
             <div className="logo">DEV<span>ESTATE</span></div>
-            <p>Architecte Web Senior spécialisé en Marketing Digital & Immobilier de prestige.</p>
+            <p className="brand-description">
+              Expertise senior en développement React et stratégies digitales pour l'immobilier de luxe.
+            </p>
           </div>
 
-          <nav className="footer-nav" aria-label="Navigation secondaire">
-            <div className="footer-col">
-              <h4>Expertises</h4>
-              <ul>
-                <li>Marketing Digital</li>
-                <li>Immobilier Tech</li>
-                <li>SEO / Performance</li>
+          <div className="footer-links-grid">
+            <div className="footer-nav-col">
+              <h4 className="footer-label">Expertises</h4>
+              <ul className="footer-links">
+                <li><a href="#services">Marketing Digital</a></li>
+                <li><a href="#immobilier">Immobilier Tech</a></li>
+                <li><a href="#competences">Headless CMS</a></li>
               </ul>
             </div>
-            <div className="footer-col">
-              <h4>Réseaux</h4>
-              <ul>
-                <li>LinkedIn</li>
-                <li>GitHub</li>
-                <li>Twitter (X)</li>
-              </ul>
-            </div>
-          </nav>
 
-          <div className="footer-contact">
-            <h4>Localisation</h4>
-            <address>
-              Digital Nomad / Base : Paris & Remote<br />
-              <a href="tel:+33600000000">+33 6 00 00 00 00</a>
-            </address>
+            <div className="footer-nav-col">
+              <h4 className="footer-label">Social</h4>
+              <ul className="footer-links">
+                <li><a href="#linkedin">LinkedIn</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#x">Twitter / X</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-nav-col">
+              <h4 className="footer-label">Contact</h4>
+              <address className="footer-address">
+                Paris / Remote<br />
+                <a href="tel:+33600000000" className="phone-link">+33 6 00 00 00 00</a>
+              </address>
+            </div>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} DEVESTATE. Tous droits réservés.</p>
-          <div className="tech-badge">Powered by React & Headless Architecture</div>
+        <div className="footer-legal">
+          <p className="copyright">&copy; {currentYear} DEVESTATE. Tous droits réservés.</p>
+          <div className="status-badge">
+            <span className="status-dot"></span>
+            Disponible pour nouveaux projets
+          </div>
         </div>
       </div>
     </footer>

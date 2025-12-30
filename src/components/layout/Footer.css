@@ -1,126 +1,154 @@
 .site-footer {
-  background: #050508;
-  padding-top: 80px;
-  padding-bottom: 30px;
+  background: #030305;
+  padding-top: var(--section-space);
+  padding-bottom: 2rem;
   border-top: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
 }
 
+/* SECTION CTA */
 .footer-cta {
+  margin-bottom: var(--section-space);
   text-align: center;
-  margin-bottom: 80px;
 }
 
-.cta-card {
-  padding: 60px;
-  background: radial-gradient(circle at top right, rgba(112, 0, 255, 0.1), transparent);
+.cta-wrapper {
+  padding: clamp(3rem, 8vw, 5rem) 2rem;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
+  border-radius: 24px;
 }
 
-.contact-link {
+.cta-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
   display: inline-block;
-  margin-top: 30px;
-  padding: 15px 40px;
-  background: var(--primary);
+  padding: 1rem 2.5rem;
+  background: var(--text-main);
   color: var(--bg-dark);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
+  border-radius: 100px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.contact-link:hover {
-  box-shadow: 0 0 20px var(--primary);
-  transform: translateY(-2px);
-}
-
-.footer-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-  margin-bottom: 60px;
-}
-
-.footer-grid {
+/* GRID PRINCIPALE */
+.footer-main {
   display: grid;
-  grid-template-columns: 1.5fr 2fr 1fr;
-  gap: 50px;
-  margin-bottom: 60px;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
 
-.footer-brand .logo {
-  margin-bottom: 20px;
+.footer-brand-section .logo {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.footer-brand p {
+.brand-description {
   color: var(--text-muted);
-  max-width: 300px;
+  line-height: 1.6;
+  max-width: 320px;
 }
 
-.footer-nav {
-  display: flex;
-  justify-content: space-around;
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.footer-col h4, .footer-contact h4 {
-  color: var(--text-main);
+.footer-label {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
   letter-spacing: 2px;
-  margin-bottom: 25px;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
 }
 
-.footer-col ul {
+.footer-links {
   list-style: none;
 }
 
-.footer-col li {
-  margin-bottom: 12px;
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a, .footer-address, .phone-link {
   color: var(--text-muted);
-  font-size: 0.9rem;
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-.footer-col li:hover {
-  color: var(--primary);
-}
-
-.footer-contact address {
+  text-decoration: none;
+  font-size: 0.95rem;
   font-style: normal;
-  color: var(--text-muted);
-  line-height: 1.8;
+  transition: 0.3s;
 }
 
-.footer-bottom {
+.footer-links a:hover {
+  color: var(--text-main);
+  padding-left: 5px;
+}
+
+/* LEGAL BAR */
+.footer-legal {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  font-size: 0.8rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.copyright {
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
-.tech-badge {
-  border: 1px solid var(--text-muted);
-  padding: 4px 10px;
-  border-radius: 4px;
-  opacity: 0.5;
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  background: rgba(0, 255, 128, 0.05);
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: #00ff80;
+  border: 1px solid rgba(0, 255, 128, 0.2);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #00ff80;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff80;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .footer-grid {
+  .footer-links-grid {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 2.5rem;
   }
-  .footer-nav {
+  
+  .footer-legal {
     flex-direction: column;
-    gap: 40px;
-  }
-  .footer-brand p {
-    margin: 0 auto;
+    gap: 1.5rem;
+    text-align: center;
   }
 }
