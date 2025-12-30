@@ -7,19 +7,39 @@ const ProjectModal = ({ project, onClose }) => {
   return (
     <motion.div 
       className="modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-    >
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ 
+    opacity: 0,
+    transition: { delay: 0.1, duration: 0.3 } // Attend un peu avant de disparaître complètement
+  }}
+  onClick={onClose}
+>
       <motion.div 
-        className="modal-content"
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        onClick={(e) => e.stopPropagation()}
-      >
+  className="modal-content"
+  initial={{ scale: 0.8, opacity: 0, y: 40 }} // Commence petit et bas
+  animate={{ 
+    scale: 1, 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      type: "spring", 
+      damping: 25, 
+      stiffness: 300,
+      velocity: 2 
+    }
+  }}
+  exit={{ 
+    scale: 0.7,      // Rétrécit plus fort à la sortie
+    opacity: 0, 
+    y: 100,          // Tombe légèrement
+    transition: { 
+      duration: 0.4, 
+      ease: [0.32, 0, 0.67, 0] // Ease-in pour un effet de chute naturelle
+    } 
+  }}
+  onClick={(e) => e.stopPropagation()}
+>
         <button className="modal-close-btn" onClick={onClose} aria-label="Fermer">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>

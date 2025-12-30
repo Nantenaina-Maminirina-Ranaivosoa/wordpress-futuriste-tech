@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-legal">
-          <p className="copyright">&copy; {currentYear} DEVESTATE. Tous droits réservés.</p>
+          <p className="copyright">&copy; {currentYear} DEVNANTE. Tous droits réservés.</p>
           <div className="status-badge">
             <span className="status-dot"></span>
             Disponible pour nouveaux projets
