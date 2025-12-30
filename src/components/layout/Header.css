@@ -1,113 +1,146 @@
 .site-header {
- position: fixed;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: var(--header-h);
-  background: rgba(5, 5, 8, 0.8);
-  backdrop-filter: var(--glass-bg);
+  background: rgba(5, 5, 8, 0.7);
+  backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
   display: flex;
   align-items: center;
 }
 
-.site-header .container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
+/* LOGO */
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .logo span {
   color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
-
-
-nav ul {
+/* DESKTOP NAV */
+.nav-desktop ul {
   display: flex;
+  gap: 2.5rem;
   list-style: none;
-  gap: 30px;
 }
 
-nav a {
+.nav-desktop a {
   text-decoration: none;
-  color: var(--text-main);
+  color: var(--text-muted);
   font-size: 0.9rem;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--primary);
-  text-shadow: 0 0 10px var(--primary);
-}
-
-.cta-btn {
-  background: var(--gradient-main);
-  border: none;
-  padding: 10px 25px;
-  color: white;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.cta-btn:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .site-header .container {
-    padding: 0 20px;
-  }
-
-  nav {
-    position: fixed;
-    bottom: 20px; /* Navigation style "App" en bas sur mobile */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(10, 10, 15, 0.8);
-    backdrop-filter: blur(20px);
-    padding: 12px 25px;
-    border-radius: 40px;
-    border: 1px solid var(--glass-border);
-    width: 90%;
-    z-index: 1001;
-  }
-
-  nav ul {
-    justify-content: space-around;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 0.75rem;
-  }
-
-  .cta-btn {
-    display: none; /* Masqué sur mobile pour épurer ou déplacé dans le menu */
-  }
-}
-.nav-desktop { display: flex; gap: 2rem; list-style: none; }
-.nav-desktop a { 
-  text-decoration: none; 
-  color: var(--text-muted); 
-  font-size: 0.9rem; 
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: 0.3s;
 }
-.nav-desktop a:hover { color: var(--primary); }
 
-/* Responsive Header */
-@media (max-width: 768px) {
-  .nav-desktop { display: none; } /* On simplifie pour l'instant */
-  .site-header { height: 60px; }
+.nav-desktop a:hover {
+  color: var(--primary);
+}
+
+/* ACTIONS */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* MENU TOGGLE (Hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--text-main);
+  transition: 0.3s;
+}
+
+/* MOBILE NAV */
+.nav-mobile {
+  position: absolute;
+  top: var(--header-h);
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-mobile a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* RESPONSIVE TABLET & MOBILE */
+@media (max-width: 992px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .site-header {
+    height: 65px;
+  }
+}
+
+/* ANIMATION HAMBURGER ACTIVE */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  transform: rotate(-45deg);
 }
