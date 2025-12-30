@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import './ProjectModal.css';
 
 const ProjectModal = ({ project, onClose }) => {
+  if (!project) return null;
+
   return (
     <motion.div 
       className="modal-overlay"
@@ -12,35 +14,57 @@ const ProjectModal = ({ project, onClose }) => {
     >
       <motion.div 
         className="modal-content"
-        initial={{ scale: 0.9, y: 50, opacity: 0 }}
-        animate={{ scale: 1, y: 0, opacity: 1 }}
-        exit={{ scale: 0.9, y: 50, opacity: 0 }}
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        onClick={(e) => e.stopPropagation()} // Empêche de fermer en cliquant sur le contenu
+        onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose}>&times;</button>
+        <button className="modal-close-btn" onClick={onClose} aria-label="Fermer">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
         
-        <div className="modal-grid">
-          <div className="modal-image">
+        <div className="modal-inner-layout">
+          <div className="modal-visual">
             <img src={project.image} alt={project.title} />
+            <div className="image-overlay-glow"></div>
           </div>
           
-          <div className="modal-info">
-            <span className="modal-location">{project.location}</span>
-            <h2>{project.title}</h2>
-            <div className="modal-price">{project.price}</div>
+          <div className="modal-body-content">
+            <header className="modal-header-info">
+              <span className="modal-tag">{project.location}</span>
+              <h2>{project.title}</h2>
+              <div className="modal-price-display">{project.price}</div>
+            </header>
             
-            <p className="modal-description">
-              {project.description || "Ce projet représente l'apogée de l'architecture moderne, alliant durabilité, technologie intelligente et design minimaliste."}
-            </p>
-            
-            <div className="modal-specs">
-              <div className="spec-item"><span>Surface:</span> 250m²</div>
-              <div className="spec-item"><span>Type:</span> Villa Futuriste</div>
-              <div className="spec-item"><span>Statut:</span> Disponible</div>
+            <div className="modal-scroll-area">
+              <p className="modal-desc">
+                {project.description || "Une fusion parfaite entre design avant-gardiste et confort absolu, optimisée pour les standards de demain."}
+              </p>
+              
+              <div className="modal-features-grid">
+                <div className="feature-card">
+                  <span className="feature-label">Surface</span>
+                  <span className="feature-value">250 m²</span>
+                </div>
+                <div className="feature-card">
+                  <span className="feature-label">Catégorie</span>
+                  <span className="feature-value">Smart Villa</span>
+                </div>
+                <div className="feature-card">
+                  <span className="feature-label">Énergie</span>
+                  <span className="feature-value">Classe A+</span>
+                </div>
+                <div className="feature-card">
+                  <span className="feature-label">Dispo</span>
+                  <span className="feature-value">Immédiate</span>
+                </div>
+              </div>
             </div>
 
-            <button className="cta-btn">Demander un devis</button>
+            <footer className="modal-footer-action">
+              <button className="cta-btn primary-cta">Demander une brochure</button>
+            </footer>
           </div>
         </div>
       </motion.div>
