@@ -21,7 +21,7 @@ const Footer = () => {
             </h2>
             <p className="cta-text">Fusionnons vos ambitions avec une architecture web d'exception.</p>
             <motion.a 
-              href="mailto:contact@devestate.com" 
+              href="mailto:rnantenainamaminirina@gmail.com" 
               className="cta-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -52,17 +52,17 @@ const Footer = () => {
             <div className="footer-nav-col">
               <h4 className="footer-label">Social</h4>
               <ul className="footer-links">
-                <li><a href="#linkedin">LinkedIn</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#x">Twitter / X</a></li>
+                <li><a href="https://www.linkedin.com/in/nantenaina-maminirina-ranaivosoa-3482a0303/">LinkedIn</a></li>
+                <li><a href="https://github.com/Nantenaina-Maminirina-Ranaivosoa">GitHub</a></li>
+                <li><a href="https://nantenaina-maminirina-portfolio.vercel.app/">Portfolio</a></li>
               </ul>
             </div>
 
             <div className="footer-nav-col">
               <h4 className="footer-label">Contact</h4>
               <address className="footer-address">
-                Paris / Remote<br />
-                <a href="tel:+33600000000" className="phone-link">+33 6 00 00 00 00</a>
+                Antananarivo / Remote<br />
+                <a href="tel:+32 40 000 00" className="phone-link">+32 40 000 00</a>
               </address>
             </div>
           </div>
