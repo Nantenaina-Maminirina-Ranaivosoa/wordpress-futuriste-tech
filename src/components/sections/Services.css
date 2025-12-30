@@ -1,107 +1,126 @@
 .services-section {
-  padding: 100px 0;
-  position: relative;
-  /* Fond légèrement différent pour séparer visuellement de la section précédente */
-  background: linear-gradient(180deg, #0d0d14 0%, var(--bg-dark) 100%); 
+  padding: var(--section-space) 0;
+  background: linear-gradient(to bottom, var(--bg-dark), #0a0a0f);
 }
 
-.services-intro {
+.services-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: clamp(3rem, 10vw, 5rem);
 }
 
-.services-intro h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.services-header h2 {
+  font-size: var(--fs-h2);
+  margin-bottom: 1rem;
 }
 
-.services-wrapper {
+.services-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* GRILLE DE SERVICES */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  height: 100%;
+  position: relative;
+}
+
+.service-card-inner {
+  height: 100%;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* CARTE HORIZONTALE */
-.service-card {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--glass-border);
-  border-left: 4px solid var(--secondary); /* Accent couleur */
-  padding: 30px;
-  border-radius: 4px var(--radius-md) var(--radius-md) 4px;
-  position: relative;
+  align-items: flex-start;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  position: relative;
 }
 
-.service-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-left-color: var(--primary); /* Changement de couleur au survol */
+.service-card:hover .service-card-inner {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ICONE */
-.icon-box {
-  flex-shrink: 0;
+/* ICONES */
+.service-icon-wrapper {
+  position: relative;
   width: 60px;
   height: 60px;
-  background: rgba(0, 240, 255, 0.1);
-  border-radius: 50%;
+  margin-bottom: 2rem;
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 25px;
-  color: var(--primary);
 }
 
 .service-icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
 }
 
-/* CONTENU TEXTE */
-.service-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  color: var(--text-main);
-}
-
-.service-content p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  margin: 0;
-}
-
-/* EFFET GLOW FUTURISTE */
-.glow-effect {
+.icon-glow {
   position: absolute;
-  top: 0;
+  inset: 0;
+  background: var(--primary);
+  filter: blur(20px);
+  opacity: 0.15;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover .icon-glow {
+  opacity: 0.4;
+}
+
+/* TYPOGRAPHIE */
+.service-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.service-info p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* DECORATION DE CARTE */
+.service-decoration {
+  position: absolute;
+  bottom: 0;
   right: 0;
-  width: 100px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05));
-  transform: skewX(-20deg) translateX(150%);
-  transition: transform 0.5s;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0, 240, 255, 0.05) 100%);
+  border-radius: 0 0 20px 0;
 }
 
-.service-card:hover .glow-effect {
-  transform: skewX(-20deg) translateX(-500%); /* L'effet traverse la carte */
-  transition: transform 0.7s;
-}
-
-/* RESPONSIVE MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .service-card {
-    flex-direction: column;
-    text-align: center;
-    border-left: 1px solid var(--glass-border);
-    border-top: 4px solid var(--secondary);
+  .services-grid {
+    grid-template-columns: 1fr; /* On repasse en colonne simple pour la lisibilité */
+    gap: 1.5rem;
   }
 
-  .icon-box {
-    margin-right: 0;
-    margin-bottom: 20px;
+  .service-card-inner {
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .service-icon-wrapper {
+    margin-bottom: 1.5rem;
   }
 }
