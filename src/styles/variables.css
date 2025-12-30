@@ -79,3 +79,17 @@ body::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+html {
+  /* Scroll fluide pour les ancres [id] */
+  scroll-behavior: smooth;
+  /* Espacement pour ne pas que le header fixe cache le début de la section */
+  scroll-padding-top: var(--header-h);
+}
+
+/* Optimisation pour les utilisateurs qui préfèrent ne pas avoir d'animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
