@@ -3,48 +3,58 @@ import { motion } from 'framer-motion';
 import { getRealEstateProjects } from '../../services/wpService';
 import './RealEstate.css';
 
-// Variantes pour l'animation d'apparition en cascade (Stagger)
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
+    transition: { staggerChildren: 0.15 }
   }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  }
 };
 
 const RealEstate = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    getRealEstateProjects().then(data => setProjects(data));
+    getRealEstateProjects().then(setProjects);
   }, []);
 
   return (
     <section id="immobilier" className="real-estate-section">
       <div className="container">
-        <motion.div 
-          className="section-header"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2>Projets <span className="highlight">Exclusifs</span></h2>
-          <p className="subtitle">Une sélection de biens immobiliers futuristes.</p>
-        </motion.div>
+        <header className="section-header">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Portfolio <span className="highlight">Immobilier</span>
+          </motion.h2>
+          <motion.p 
+            className="subtitle"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            L'excellence architecturale propulsée par l'innovation digitale.
+          </motion.p>
+        </header>
 
         <motion.div 
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           {projects.map((project) => (
             <motion.article 
@@ -53,35 +63,34 @@ const RealEstate = () => {
               variants={cardVariants}
               whileHover="hover"
             >
-              <div className="image-wrapper">
-                <motion.img 
-                  src={project.image} 
-                  alt={project.title}
-                  variants={{ hover: { scale: 1.1 } }}
-                  transition={{ duration: 0.4 }}
-                />
-                <div className="overlay" />
-                <motion.div 
-                  className="card-badges"
-                  variants={{ hover: { opacity: 1, y: 0 } }}
-                  initial={{ opacity: 0, y: -10 }}
-                >
-                  {project.tags.map(tag => <span key={tag} className="badge">{tag}</span>)}
-                </motion.div>
-              </div>
-
-              <div className="card-content">
-                <div className="card-meta">
-                  <span className="location">{project.location}</span>
-                  <span className="price">{project.price}</span>
+              <div className="card-inner">
+                <div className="image-container">
+                  <motion.img 
+                    src={project.image} 
+                    alt={project.title}
+                    variants={{ hover: { scale: 1.05 } }}
+                    transition={{ duration: 0.6 }}
+                    loading="lazy"
+                  />
+                  <div className="card-overlay" />
+                  <div className="card-badges">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="tag-badge">{tag}</span>
+                    ))}
+                  </div>
                 </div>
-                <h3>{project.title}</h3>
-                <motion.button 
-                  className="view-btn"
-                  variants={{ hover: { x: 5, color: "var(--primary)" } }}
-                >
-                  Découvrir le projet &rarr;
-                </motion.button>
+
+                <div className="card-body">
+                  <div className="card-top">
+                    <span className="location">{project.location}</span>
+                    <span className="price-tag">{project.price}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <div className="card-footer">
+                    <span className="explore-text">Voir les détails</span>
+                    <div className="arrow-icon">→</div>
+                  </div>
+                </div>
               </div>
             </motion.article>
           ))}
