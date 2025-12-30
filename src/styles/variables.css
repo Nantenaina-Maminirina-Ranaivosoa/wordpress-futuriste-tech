@@ -1,0 +1,49 @@
+:root {
+  /* Palette Futuriste */
+  --bg-dark: #0a0a0f;
+  --bg-card: #13131f;
+  --primary: #00f0ff; /* Cyan Néon */
+  --secondary: #7000ff; /* Violet Profond */
+  --accent: #ff0055; /* Rose Cyber */
+  --text-main: #e0e0e0;
+  --text-muted: #858595;
+  
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Spacing & Layout */
+  --container-width: 1200px;
+  --header-height: 80px;
+  --radius-md: 12px;
+  
+  /* Typography */
+  --font-main: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar Futuriste */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
