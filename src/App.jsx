@@ -2,6 +2,7 @@ import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import RealEstate from './components/sections/RealEstate';
 import Skills from './components/sections/Skills';
+import Services from './components/sections/Services';
 import './styles/variables.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Services />
         <RealEstate />
         <Skills />
       </main>

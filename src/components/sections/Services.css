@@ -1,0 +1,107 @@
+.services-section {
+  padding: 100px 0;
+  position: relative;
+  /* Fond légèrement différent pour séparer visuellement de la section précédente */
+  background: linear-gradient(180deg, #0d0d14 0%, var(--bg-dark) 100%); 
+}
+
+.services-intro {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.services-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.services-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CARTE HORIZONTALE */
+.service-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--secondary); /* Accent couleur */
+  padding: 30px;
+  border-radius: 4px var(--radius-md) var(--radius-md) 4px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-left-color: var(--primary); /* Changement de couleur au survol */
+}
+
+/* ICONE */
+.icon-box {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 240, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  color: var(--primary);
+}
+
+.service-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* CONTENU TEXTE */
+.service-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.service-content p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* EFFET GLOW FUTURISTE */
+.glow-effect {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05));
+  transform: skewX(-20deg) translateX(150%);
+  transition: transform 0.5s;
+}
+
+.service-card:hover .glow-effect {
+  transform: skewX(-20deg) translateX(-500%); /* L'effet traverse la carte */
+  transition: transform 0.7s;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    border-left: 1px solid var(--glass-border);
+    border-top: 4px solid var(--secondary);
+  }
+
+  .icon-box {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
