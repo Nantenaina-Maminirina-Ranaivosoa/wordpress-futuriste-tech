@@ -66,3 +66,36 @@ nav a:hover {
 .cta-btn:hover {
   transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .site-header .container {
+    padding: 0 20px;
+  }
+
+  nav {
+    position: fixed;
+    bottom: 20px; /* Navigation style "App" en bas sur mobile */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 12px 25px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    width: 90%;
+    z-index: 1001;
+  }
+
+  nav ul {
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 0.75rem;
+  }
+
+  .cta-btn {
+    display: none; /* Masqué sur mobile pour épurer ou déplacé dans le menu */
+  }
+}

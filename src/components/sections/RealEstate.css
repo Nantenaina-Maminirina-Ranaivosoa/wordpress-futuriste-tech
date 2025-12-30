@@ -26,8 +26,9 @@
 /* GRILLE */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 40px;
+  /* La magie du responsive sans media queries : */
+  grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 100%, 400px), 1fr));
+  gap: var(--container-gutter);
 }
 
 /* CARTE */
@@ -127,5 +128,22 @@
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Adaptation spécifique Tablette / Mobile via Media Queries */
+@media (max-width: 1024px) {
+  .project-card {
+    /* Optimisation du contraste sur tablette */
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+@media (max-width: 480px) {
+  .real-estate-section {
+    padding: var(--section-padding) 0;
+  }
+  .card-content h3 {
+    font-size: 1.2rem;
   }
 }
