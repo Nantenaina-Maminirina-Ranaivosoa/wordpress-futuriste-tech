@@ -3,6 +3,7 @@ import Hero from './components/sections/Hero';
 import RealEstate from './components/sections/RealEstate';
 import Skills from './components/sections/Skills';
 import Services from './components/sections/Services';
+import Footer from './components/layout/Footer';
 import './styles/variables.css';
 
 function App() {
@@ -15,9 +16,7 @@ function App() {
         <RealEstate />
         <Skills />
       </main>
-      <footer style={{ textAlign: 'center', padding: '50px', color: 'var(--text-muted)' }}>
-        <p>© 2024 DevEstate - Architecture Headless</p>
-      </footer>
+      <Footer />
     </>
   );
 }

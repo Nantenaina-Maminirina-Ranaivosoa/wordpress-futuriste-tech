@@ -1,25 +1,20 @@
 .site-header {
-  position: fixed;
+ position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: var(--header-height);
-  background: rgba(10, 10, 15, 0.7);
-  backdrop-filter: blur(12px); /* Effet Glass */
+  height: var(--header-h);
+  background: rgba(5, 5, 8, 0.8);
+  backdrop-filter: var(--glass-bg);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
   display: flex;
   align-items: center;
 }
 
-.container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
+.site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
 }
 
 .logo {
@@ -32,6 +27,8 @@
 .logo span {
   color: var(--primary);
 }
+
+
 
 nav ul {
   display: flex;
@@ -98,4 +95,19 @@ nav a:hover {
   .cta-btn {
     display: none; /* Masqué sur mobile pour épurer ou déplacé dans le menu */
   }
+}
+.nav-desktop { display: flex; gap: 2rem; list-style: none; }
+.nav-desktop a { 
+  text-decoration: none; 
+  color: var(--text-muted); 
+  font-size: 0.9rem; 
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-desktop a:hover { color: var(--primary); }
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  .nav-desktop { display: none; } /* On simplifie pour l'instant */
+  .site-header { height: 60px; }
 }

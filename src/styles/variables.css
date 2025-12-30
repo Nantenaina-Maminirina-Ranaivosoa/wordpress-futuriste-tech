@@ -1,42 +1,28 @@
 :root {
-  /* Palette Futuriste */
-  --bg-dark: #0a0a0f;
-  --bg-card: #13131f;
-  --primary: #00f0ff; /* Cyan Néon */
-  --secondary: #7000ff; /* Violet Profond */
-  --accent: #ff0055; /* Rose Cyber */
-  --text-main: #e0e0e0;
-  --text-muted: #858595;
+  /* Palette Unifiée */
+  --bg-dark: #050508;
+  --bg-card: rgba(15, 15, 25, 0.6);
+  --primary: #00f0ff;
+  --secondary: #7000ff;
+  --accent: #ff0055;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
   
-  /* Gradients */
-  --gradient-main: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Glassmorphism Unifié */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: blur(12px);
 
-  /* Spacing & Layout */
-  --container-width: 1200px;
-  --header-height: 80px;
-  --radius-md: 12px;
-  
-  /* Typography */
-  --font-main: 'Inter', sans-serif;
-
-  /* Typographie Fluide : clamp(min, preferred, max) */
-  --fs-h1: clamp(2.5rem, 8vw, 4.5rem);
-  --fs-h2: clamp(1.8rem, 5vw, 2.8rem);
-  --fs-body: clamp(0.95rem, 1vw + 0.5rem, 1.1rem);
-  
-  /* Espacements Fluides */
-  --section-padding: clamp(60px, 10vw, 120px);
-  --container-gutter: clamp(20px, 5vw, 40px);
+  /* Espacements Cohérents */
+  --header-h: 70px;
+  --section-space: clamp(80px, 15vh, 150px);
+  --container-max: 1200px;
 }
 
 /* Amélioration du Container Global */
 .container {
-  width: 100%;
-  max-width: 1400px; /* Plus large pour les écrans 4K */
+  width: 90%;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-gutter);
 }
 
 /* Media Query pour les très grands écrans (Ultrawide) */
@@ -57,10 +43,11 @@
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: var(--font-main);
-  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
+h1, h2, h3 { line-height: 1.1; font-weight: 700; }
 body::before {
   content: "";
   position: fixed;
@@ -85,4 +72,10 @@ body::before {
 ::-webkit-scrollbar-thumb {
   background: var(--secondary);
   border-radius: 4px;
+}
+.highlight {
+  color: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
