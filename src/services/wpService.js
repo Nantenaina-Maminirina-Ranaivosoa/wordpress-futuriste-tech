@@ -28,3 +28,32 @@ export const getSkills = async () => {
     { id: 4, name: "CSS Pur", level: 100 },
   ];
 };
+
+export const getRealEstateProjects = async () => {
+  return [
+    {
+      id: 101,
+      title: "Penthouse Néo-Tokyo",
+      location: "Shibuya, Tokyo",
+      price: "2,500,000 €",
+      tags: ["Domotique", "Vue Panoramique"],
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80"
+    },
+    {
+      id: 102,
+      title: "Villa Cyberpunk",
+      location: "Los Angeles, CA",
+      price: "4,200,000 €",
+      tags: ["Architecture Brutaliste", "Piscine"],
+      image: "https://images.unsplash.com/photo-1600596542815-2495db98dada?auto=format&fit=crop&q=80"
+    },
+    {
+      id: 103,
+      title: "Loft Minimaliste",
+      location: "Berlin, Allemagne",
+      price: "950,000 €",
+      tags: ["Durable", "Smart Home"],
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80"
+    }
+  ];
+};

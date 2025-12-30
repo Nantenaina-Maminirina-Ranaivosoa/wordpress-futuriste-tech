@@ -1,5 +1,6 @@
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
+import RealEstate from './components/sections/RealEstate';
 import Skills from './components/sections/Skills';
 import './styles/variables.css';
 
@@ -9,7 +10,7 @@ function App() {
       <Header />
       <main>
         <Hero />
-        {/* Tu ajouteras ici tes sections Marketing et Immobilier sur le même modèle */}
+        <RealEstate />
         <Skills />
       </main>
       <footer style={{ textAlign: 'center', padding: '50px', color: 'var(--text-muted)' }}>
