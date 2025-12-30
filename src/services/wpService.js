@@ -45,7 +45,7 @@ export const getRealEstateProjects = async () => {
       location: "Los Angeles, CA",
       price: "4,200,000 €",
       tags: ["Architecture Brutaliste", "Piscine"],
-      image: "https://images.unsplash.com/photo-1600596542815-2495db98dada?auto=format&fit=crop&q=80"
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80"
     },
     {
       id: 103,

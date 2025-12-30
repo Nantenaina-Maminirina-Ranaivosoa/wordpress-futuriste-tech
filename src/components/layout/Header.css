@@ -135,6 +135,70 @@
     height: 65px;
   }
 }
+.cta-btn {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--primary);
+  padding: 10px 22px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px; /* Un peu plus carré pour le look "Architecte" */
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Effet au survol (Remplissage) */
+.cta-btn:hover {
+  background: var(--primary);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* État actif (clic) */
+.cta-btn:active {
+  transform: translateY(0);
+}
+
+/* --- ADAPTATION MOBILE DU BOUTON --- */
+.mobile-cta {
+  width: 100%;
+  max-width: 250px;
+  padding: 15px;
+  font-size: 1rem;
+  background: rgba(0, 240, 255, 0.1); /* Légère teinte sur mobile pour la visibilité */
+  border-radius: 8px; /* Plus arrondi sur mobile pour l'aspect tactile */
+}
+
+/* --- GESTION DE L'AFFICHAGE --- */
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .desktop-only {
+    display: none; /* Cache le bouton du header sur tablette/mobile */
+  }
+  
+  .nav-mobile .cta-btn {
+    margin-top: 1rem;
+    display: block; /* Affiche le bouton dans le menu déroulant mobile */
+  }
+}
+
+/* Correction spécifique pour les très petits écrans (iPhone SE, etc.) */
+@media (max-width: 350px) {
+  .cta-btn {
+    padding: 8px 15px;
+    font-size: 0.75rem;
+  }
+}
+
 
 /* ANIMATION HAMBURGER ACTIVE */
 .menu-toggle.active span:nth-child(1) {

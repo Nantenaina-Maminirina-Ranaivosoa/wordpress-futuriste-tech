@@ -14,7 +14,7 @@ const Header = () => {
     >
       <div className="container header-container">
         <div className="logo">
-          DEV<span>ESTATE</span>
+          DEV<span>NANTE</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -54,7 +54,7 @@ const Header = () => {
               <li><a href="#services" onClick={() => setIsOpen(false)}>Services</a></li>
               <li><a href="#immobilier" onClick={() => setIsOpen(false)}>Immobilier</a></li>
               <li><a href="#competences" onClick={() => setIsOpen(false)}>Compétences</a></li>
-              <li><button className="cta-btn">Me Contacter</button></li>
+              <li><button className="cta-btn mobile-cta desktop-only">Me Contacter</button></li>
             </ul>
           </motion.nav>
         )}

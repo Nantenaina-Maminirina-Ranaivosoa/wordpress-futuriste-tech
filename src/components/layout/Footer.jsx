@@ -33,7 +33,7 @@ const Footer = () => {
 
         <div className="footer-main">
           <div className="footer-brand-section">
-            <div className="logo">DEV<span>ESTATE</span></div>
+            <div className="logo">DEV<span>NANTE</span></div>
             <p className="brand-description">
               Expertise senior en développement React et stratégies digitales pour l'immobilier de luxe.
             </p>
